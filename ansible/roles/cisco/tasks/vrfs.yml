@@ -1,0 +1,15 @@
+---
+- name: Create vrfs
+  cisco.ios.ios_config:
+    lines:
+      - description VRF for MP-BGP fabric
+      - "rd {{ item.rd }}"
+    parents: "ip vrf {{ item.name }}"
+  loop: "{{ vrfs }}"
+
+- name: Delete vrfs
+  cisco.ios.ios_vrf:
+    name: "{{ item.name }}"
+    state: absent
+  loop: "{{ vrfs }}"
+  when: item.state == 'absent'

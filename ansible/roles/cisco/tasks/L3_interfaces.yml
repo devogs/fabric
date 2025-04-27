@@ -1,0 +1,37 @@
+---
+- name: Apply No Switchport for L3 interfaces
+  cisco.ios.ios_config:
+    lines:
+    - no switchport
+    parents: interface {{ item.interface }}
+  loop: "{{ interfaces }}"
+  when: 
+  - item.description != "MGMT"
+  - item.enabled == True 
+  - item.address != None
+  - "'Ethernet' in item.interface"
+
+- name: Assign VRF for L3 interfaces
+  cisco.ios.ios_config:
+    lines:
+      - ip vrf forwarding {{ item.vrf }}
+    parents: interface {{ item.interface }}
+  loop: "{{ interfaces }}"
+  when: 
+  - item.description != "MGMT"
+  - item.enabled == True 
+  - item.address != None
+
+- name: L3 Interfaces configuration
+  cisco.ios.ios_l3_interfaces:
+    config:
+      - name: "{{ item.interface }}"
+        ipv4:
+          - address: "{{ item.address }}{{ item.mask }}"
+    state: merged
+  loop: "{{ interfaces }}"
+  when: 
+    - item.description != "MGMT"
+    - item.enabled == True
+    - item.address is not none
+    - (item.mode is none or item.mode is not defined)

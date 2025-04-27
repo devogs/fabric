@@ -1,0 +1,15 @@
+---
+- name: Merge provided configuration with device configuration
+  cisco.ios.ios_static_routes:
+    config:
+      - vrf: "{{ item.vrf }}"
+        address_families:
+          - afi: ipv4
+            routes:
+              - dest: "{{ item.destination }}{{ item.mask }}"
+                next_hops:
+                  - forward_router_address: "{{ item.next_hop }}"
+                    name: "{{ item.name }}"
+                    # distance_metric: "{{ item.metric }}"
+    state: merged
+  loop: "{{ static_routes }}"

@@ -1,0 +1,9 @@
+---
+- name: Merge provided configuration with device configuration
+  cisco.ios.ios_vlans:
+    config:
+      - name: "{{ item.vlan_name }}"
+        vlan_id: "{{ item.vlan_id }}"
+        state: "{{ item.vlan_state }}"
+    state: merged
+  loop: "{{ vlans }}"

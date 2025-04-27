@@ -1,0 +1,25 @@
+---
+# - name: Configure VLAN and DHCP pool
+#   cisco.ios.ios_config:
+#     lines:
+#       - network {{ item.dhcp_subnet }} {{ item.dhcp_mask }}
+#       - default-router {{ item.dhcp_gateway }}
+#       # - dns-server "{{ item.dhcp_dns_primary }}" "{{ item.dhcp_dns_secondary }}"
+#       - lease {{ item.dhcp_lease }}
+#       - end
+#     parents: ip dhcp pool {{ item.dhcp_pool_name }}
+#     save_when: changed
+#   loop: "{{ dhcp_servers }}"
+
+- name: Configure VLAN and DHCP pool
+  cisco.ios.ios_config:
+    lines:
+      - network {{ item.dhcp_subnet }} {{ item.dhcp_mask }}
+      - default-router {{ item.dhcp_gateway }}
+      # - dns-server "{{ item.dhcp_dns_primary }}" "{{ item.dhcp_dns_secondary }}"
+      - lease {{ item.dhcp_lease }}
+    parents: ip dhcp pool {{ item.dhcp_pool_name }}
+    replace: line
+    save_when: changed
+  loop: "{{ dhcp_servers }}"
+
