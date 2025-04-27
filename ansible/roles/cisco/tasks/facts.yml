@@ -1,0 +1,13 @@
+---
+- name: Gather facts (ios)
+  cisco.ios.ios_facts:
+    gather_subset:
+    - config
+    # - interfaces
+    gather_network_resources:
+    - interfaces
+  register: res_facts
+
+# - name: Display some facts
+#   debug:
+#     var: res_facts.ansible_facts

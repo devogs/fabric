@@ -1,0 +1,7 @@
+---
+# tasks file for cisco
+# - import_tasks: facts.yml
+# - import_tasks: global.yml
+# - import_tasks: vrfs.yml
+# - import_tasks: L3_interfaces.yml
+- import_tasks: static_routes.yml

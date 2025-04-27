@@ -1,0 +1,123 @@
+---
+hostname: leaf-3
+
+asn: 65013
+router_id: 10.100.250.13
+
+# dhcp_servers:
+# - dhcp_vlan: 30
+#   dhcp_vrf: FABRIC
+#   dhcp_pool_name: VLAN_30_POOL
+#   dhcp_subnet: 10.100.30.0/24
+#   dhcp_gateway: 10.100.30.1
+#   dhcp_dns_primary: 192.168.2.1
+#   dhcp_lease: 7
+#   dhcp_range_min: 10.100.30.2
+#   dhcp_range_max: 10.100.30.99
+
+neighbors:
+- remote_as: 65001
+  neighbor_address: 10.100.250.1
+  ebgp_multihop: 2
+  update_source: Loopback0
+  default_originate: False
+
+- remote_as: 65002
+  neighbor_address: 10.100.250.2
+  ebgp_multihop: 2
+  update_source: Loopback0
+  default_originate: False
+
+networks:
+- prefix: 10.100.30.1/24
+- prefix: 192.168.2.0/24
+
+static_routes:
+- destination: 10.100.250.1
+  mask: /32
+  next_hop: 10.100.1.4
+  vrf: FABRIC
+  metric: 1
+  name: Route_to_bgp_loopback_spine-1
+
+- destination: 10.100.250.2
+  mask: /32
+  next_hop: 10.100.2.4
+  vrf: FABRIC
+  metric: 1
+  name: Route_to_bgp_loopback_spine-2
+
+# - destination: 0.0.0.0
+#   mask: 0.0.0.0
+#   next_hop: 192.168.2.1
+#   vrf: FABRIC
+#   metric: 1
+#   name: Default_route
+
+vrfs:
+- name: MGMT
+  rd: "65001:100"
+  interface: GigabitEthernet3/3
+  state: present
+
+- name: FABRIC
+  rd: "65001:200"
+  state: present
+
+vlans:
+- id: 1
+  name: default
+  state: active
+
+interfaces:
+- interface: GigabitEthernet3/1
+  description: To Spine-1
+  enabled: True
+  mode:
+  vlan:
+  native_vlan:
+  allowed_vlan:
+  vrf: FABRIC
+  address: 10.100.1.5
+  mask: /31
+  speed: auto
+  duplex: full
+  mtu: 9000
+  channel_group:
+
+- interface: GigabitEthernet3/2
+  description: To Spine-2
+  enabled: True
+  mode:
+  vlan:
+  native_vlan:
+  allowed_vlan:
+  vrf: FABRIC
+  address: 10.100.2.5
+  mask: /31
+  speed: auto
+  duplex: full
+  mtu: 9000
+  channel_group:
+
+- interface: GigabitEthernet3/3
+  description: MGMT
+  enabled: True
+  mode:
+  vlan:
+  native_vlan:
+  allowed_vlan:
+  vrf: MGMT
+  address: 172.18.0.15
+  mask: /16
+  speed: auto
+  duplex: full
+  mtu: 1500
+  channel_group:
+
+- interface: loopback0
+  description: BGP Router ID
+  enabled: True
+  vrf: FABRIC
+  address: 10.100.250.13
+  mask: /32

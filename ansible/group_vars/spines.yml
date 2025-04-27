@@ -1,0 +1,9 @@
+---
+ansible_connection: ansible.netcommon.network_cli
+ansible_ssh_user: admin
+ansible_ssh_pass: admin1234
+become: yes
+ansible_become_method: enable
+ansible_become_password: en1234
+ansible_network_os: cisco.ios.ios
+ansible_python_interpreter: /usr/bin/python3
