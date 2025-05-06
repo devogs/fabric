@@ -1,0 +1,3 @@
+- name: Copy run start
+  cisco.ios.ios_command:
+    commands: write memory

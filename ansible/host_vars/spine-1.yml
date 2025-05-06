@@ -34,7 +34,8 @@ neighbors:
   default_originate: False
 
 networks:
-- prefix: 
+- address:
+  mask: 
 
 static_routes:
 - destination: 10.100.250.11
@@ -139,4 +140,4 @@ interfaces:
   enabled: true
   vrf: FABRIC
   address: 10.100.250.1
-  mask: /32
+  mask: 255.255.255.255

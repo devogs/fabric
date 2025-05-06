@@ -3,5 +3,11 @@
 # - import_tasks: facts.yml
 # - import_tasks: global.yml
 # - import_tasks: vrfs.yml
-# - import_tasks: L3_interfaces.yml
-- import_tasks: static_routes.yml
+# - import_tasks: loopback.yml
+# - import_tasks: eth_interfaces.yml
+# - import_tasks: static_routes.yml
+- import_tasks: bgp_rollback.yml
+- import_tasks: bgp.yml
+- import_tasks: bgp_networks.yml
+# - import_tasks: reset_interfaces.yml
+- import_tasks: save.yml

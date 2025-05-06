@@ -1,0 +1,17 @@
+---
+- name: Declare network in BGP
+  cisco.ios.ios_bgp_address_family:
+    config:
+      as_number: "{{ asn }}"
+      address_family:
+        - afi: ipv4
+          safi: unicast
+          vrf: "{{ fabric_vrf }}"
+          network:
+            - address: "{{ item.address }}"
+              mask: "{{ item.mask }}"
+  loop: "{{ networks }}"
+  when:
+    - networks is defined
+    - item.address is defined
+    - item.address is not none

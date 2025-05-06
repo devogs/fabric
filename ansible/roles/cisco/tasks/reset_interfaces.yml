@@ -1,0 +1,18 @@
+- name: Build list of default interface commands
+  ansible.builtin.set_fact:
+    reset_interface_commands: >-
+      {{
+        interfaces
+        | selectattr('description', 'equalto', None)
+        | map(attribute='interface')
+        | map('regex_replace', '^', 'default interface ')
+        | list
+      }}
+
+- name: Debug what will be reset (optional)
+  ansible.builtin.debug:
+    var: reset_interface_commands
+
+- name: Reset interfaces in batch
+  cisco.ios.ios_config:
+    lines: "{{ reset_interface_commands }}"
