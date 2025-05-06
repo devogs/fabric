@@ -1,0 +1,61 @@
+name: leaf-1
+device_type: Switch
+role: leaf
+site: local
+tenant: gns3
+
+interfaces:
+  - name: GigabitEthernet0/0
+    type: 1000base-t
+    description: To k8s-master-1
+    enabled: true
+    mtu: 1500
+    mgmtonly: false
+    ip_addresses:
+      - ip_address: 10.10.0.0/31
+        status: active
+        vrf: FABRIC
+
+  - name: GigabitEthernet3/1
+    type: 1000base-t
+    description: To spine-1
+    enabled: true
+    mtu: 1500
+    mgmtonly: false
+    ip_addresses:
+      - ip_address: 10.100.1.1/31
+        status: active
+        vrf: FABRIC
+
+  - name: GigabitEthernet3/2
+    type: 1000base-t
+    description: To spine-2
+    enabled: true
+    mtu: 1500
+    mgmtonly: false
+    ip_addresses:
+      - ip_address: 10.100.2.1/31
+        status: active
+        vrf: FABRIC
+
+  - name: GigabitEthernet3/3
+    type: 1000base-t
+    description: MGMT
+    enabled: true
+    mtu: 1500
+    mgmtonly: true
+    ip_addresses:
+      - ip_address: 172.18.0.13/16
+        status: active
+        vrf: MGMT
+        
+  - name: Loopback0
+    type: virtual
+    description: BGP router ID
+    enabled: true
+    mtu: 1500
+    mgmtonly: false
+    ip_addresses:
+      - ip_address: 10.100.250.11/32
+        status: active
+        vrf: FABRIC
