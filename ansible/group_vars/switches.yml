@@ -10,3 +10,5 @@ ansible_python_interpreter: /usr/bin/python3
 snmp_user: NWMgmtOnly! 
 snmp_auth: P@ssW0rd
 snmp_priv: P@ssW0rD1
+
+fabric_vrf: FABRIC

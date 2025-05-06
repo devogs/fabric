@@ -1,0 +1,13 @@
+---
+- name: Configure BGP
+  cisco.ios.ios_config:
+    lines:
+    - router bgp {{ asn }}
+    - bgp router-id {{ router_id }}
+    - address-family ipv4 vrf {{ fabric_vrf }}
+    - neighbor {{  item.neighbor_address }} remote-as {{  item.remote_as }}
+    - neighbor {{  item.neighbor_address }} ebgp-multihop {{  item.ebgp_multihop }}
+    - neighbor {{  item.neighbor_address }} update-source {{  item.update_source }}
+    - neighbor {{  item.neighbor_address }} activate
+    - maximum-paths eibgp 2
+  loop: "{{ neighbors }}"

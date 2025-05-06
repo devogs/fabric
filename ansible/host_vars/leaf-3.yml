@@ -29,8 +29,8 @@ neighbors:
   default_originate: False
 
 networks:
-- prefix: 10.100.30.1/24
-- prefix: 192.168.2.0/24
+- address: 10.13.0.2
+  mask: 255.255.255.254
 
 static_routes:
 - destination: 10.100.250.1
@@ -70,6 +70,21 @@ vlans:
   state: active
 
 interfaces:
+- interface: GigabitEthernet0/1
+  description: To worker-1
+  enabled: true
+  mode:
+  vlan:
+  native_vlan:
+  allowed_vlan:
+  vrf: FABRIC
+  address: 10.13.0.2
+  mask: /31
+  speed: auto
+  duplex: full
+  mtu: 1500
+  channel_group:
+
 - interface: GigabitEthernet3/1
   description: To Spine-1
   enabled: True
@@ -120,4 +135,4 @@ interfaces:
   enabled: True
   vrf: FABRIC
   address: 10.100.250.13
-  mask: /32
+  mask: 255.255.255.255

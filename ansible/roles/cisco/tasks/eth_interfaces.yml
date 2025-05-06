@@ -1,4 +1,14 @@
 ---
+- name: Set physical interfaces
+  cisco.ios.ios_interfaces:
+    config:
+    - name: "{{ item.interface }}"
+      description: "{{ item.description }}"
+      enabled: "{{ item.enabled }}"
+    state: merged
+  loop: "{{ interfaces }}"
+  when: "'loopback' not in item.interface | lower"
+
 - name: Apply No Switchport for L3 interfaces
   cisco.ios.ios_config:
     lines:
@@ -6,10 +16,10 @@
     parents: interface {{ item.interface }}
   loop: "{{ interfaces }}"
   when: 
-  - item.description != "MGMT"
-  - item.enabled == True 
-  - item.address != None
-  - "'Ethernet' in item.interface"
+    - item.description != "MGMT"
+    - item.enabled == True 
+    - item.address != None
+    - "'Ethernet' in item.interface"
 
 - name: Assign VRF for L3 interfaces
   cisco.ios.ios_config:
@@ -18,9 +28,10 @@
     parents: interface {{ item.interface }}
   loop: "{{ interfaces }}"
   when: 
-  - item.description != "MGMT"
-  - item.enabled == True 
-  - item.address != None
+    - item.description != "MGMT"
+    - item.enabled == True 
+    - item.address != None
+    - "'Ethernet' in item.interface"
 
 - name: L3 Interfaces configuration
   cisco.ios.ios_l3_interfaces:
@@ -34,4 +45,5 @@
     - item.description != "MGMT"
     - item.enabled == True
     - item.address is not none
-    - (item.mode is none or item.mode is not defined)
+    - "'Ethernet' in item.interface"
+

@@ -3,9 +3,8 @@
   cisco.ios.ios_facts:
     gather_subset:
     - config
-    # - interfaces
     gather_network_resources:
-    - interfaces
+    - l3_interfaces
   register: res_facts
 
 # - name: Display some facts
