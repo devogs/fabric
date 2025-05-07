@@ -13,6 +13,7 @@ variable "device_configs" {
       enabled     = bool
       mtu         = number
       mgmtonly    = bool
+      vrf         = string
       ip_addresses = list(object({
         ip_address = string
         status     = string

@@ -30,6 +30,7 @@ resource "netbox_device_interface" "interface" {
           enabled = interface.enabled
           mtu = interface.mtu
           mgmtonly = interface.mgmtonly
+          vrf = interface.vrf
         }
       ]
     ]) : iface.key => iface

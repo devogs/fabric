@@ -15,7 +15,7 @@ device_roles = [
 
 platforms = [
   { name = "ubuntu", manufacturer_id = "Linux" },
-  { name = "ios", manufacturer_id = "Linux" }
+  { name = "ios", manufacturer_id = "Cisco" }
 ]
 
 device_types = [
@@ -121,6 +121,56 @@ prefixes = [
     prefix      = "10.100.1.0/31"
     status      = "active"
     description = "Interco spine-1 to leaf-1"
+    is_pool     = true
+    role_id     = "Fabric interco"
+    site_id     = "local"
+    tenant_id   = "gns3"
+    vrf_id      = "FABRIC"
+  },
+  {
+    prefix      = "10.100.1.2/31"
+    status      = "active"
+    description = "Interco spine-1 to leaf-2"
+    is_pool     = true
+    role_id     = "Fabric interco"
+    site_id     = "local"
+    tenant_id   = "gns3"
+    vrf_id      = "FABRIC"
+  },
+  {
+    prefix      = "10.100.1.4/31"
+    status      = "active"
+    description = "Interco spine-1 to leaf-3"
+    is_pool     = true
+    role_id     = "Fabric interco"
+    site_id     = "local"
+    tenant_id   = "gns3"
+    vrf_id      = "FABRIC"
+  },
+ {
+    prefix      = "10.100.2.0/31"
+    status      = "active"
+    description = "Interco spine-1 to leaf-1"
+    is_pool     = true
+    role_id     = "Fabric interco"
+    site_id     = "local"
+    tenant_id   = "gns3"
+    vrf_id      = "FABRIC"
+  },
+  {
+    prefix      = "10.100.2.2/31"
+    status      = "active"
+    description = "Interco spine-1 to leaf-2"
+    is_pool     = true
+    role_id     = "Fabric interco"
+    site_id     = "local"
+    tenant_id   = "gns3"
+    vrf_id      = "FABRIC"
+  },
+  {
+    prefix      = "10.100.2.4/31"
+    status      = "active"
+    description = "Interco spine-1 to leaf-3"
     is_pool     = true
     role_id     = "Fabric interco"
     site_id     = "local"
