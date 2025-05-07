@@ -1,49 +1,50 @@
 ---
-- name: Set physical interfaces
-  cisco.ios.ios_interfaces:
-    config:
-    - name: "{{ item.interface }}"
-      description: "{{ item.description }}"
-      enabled: "{{ item.enabled }}"
-    state: merged
-  loop: "{{ interfaces }}"
-  when: "'loopback' not in item.interface | lower"
+# - name: Set physical interfaces
+#   cisco.ios.ios_interfaces:
+#     config:
+#     - name: "{{ item.name }}"
+#       description: "{{ item.description }}"
+#       enabled: "{{ item.enabled }}"
+#     state: merged
+#   loop: "{{ interfaces }}"
+#   when: "'loopback' not in item.name | lower"
 
-- name: Apply No Switchport for L3 interfaces
-  cisco.ios.ios_config:
-    lines:
-    - no switchport
-    parents: interface {{ item.interface }}
-  loop: "{{ interfaces }}"
-  when: 
-    - item.description != "MGMT"
-    - item.enabled == True 
-    - item.address != None
-    - "'Ethernet' in item.interface"
+# - name: Apply No Switchport for L3 interfaces
+#   cisco.ios.ios_config:
+#     lines:
+#     - no switchport
+#     parents: interface {{ item.name }}
+#   loop: "{{ interfaces }}"
+#   when: 
+#     - item.description != "MGMT"
+#     - item.enabled == True 
+#     - item.ip_addresses != None
+#     - "'Ethernet' in item.name"
 
-- name: Assign VRF for L3 interfaces
-  cisco.ios.ios_config:
-    lines:
-      - ip vrf forwarding {{ item.vrf }}
-    parents: interface {{ item.interface }}
-  loop: "{{ interfaces }}"
-  when: 
-    - item.description != "MGMT"
-    - item.enabled == True 
-    - item.address != None
-    - "'Ethernet' in item.interface"
+# - name: Assign VRF for L3 interfaces
+#   cisco.ios.ios_config:
+#     lines:
+#       - ip vrf forwarding {{ item.ip_addresses[0].vrf.name }}
+#     parents: interface {{ item.name }}
+#   loop: "{{ interfaces }}"
+#   when: 
+#     - item.description != "MGMT"
+#     - item.enabled == True 
+#     - item.ip_addresses != None
+#     - "'Ethernet' in item.name"
 
 - name: L3 Interfaces configuration
   cisco.ios.ios_l3_interfaces:
     config:
-      - name: "{{ item.interface }}"
+      - name: "{{ item.name }}"
         ipv4:
-          - address: "{{ item.address }}{{ item.mask }}"
+          - address: "{{ item.ip_addresses[0].address }}"
     state: merged
   loop: "{{ interfaces }}"
   when: 
     - item.description != "MGMT"
-    - item.enabled == True
-    - item.address is not none
-    - "'Ethernet' in item.interface"
+    - item.enabled == True 
+    - item.ip_addresses != None
+    - "'Ethernet' in item.name"
+
 
