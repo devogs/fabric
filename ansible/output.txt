@@ -1,0 +1,3040 @@
+
+PLAY [Configure Cisco fabric] **************************************************
+
+TASK [Configure Cisco devices] *************************************************
+included: roles/cisco for leaf-1, leaf-2, leaf-3, spine-1, spine-2
+
+TASK [cisco : Debug all hostvars] **********************************************
+ok: [leaf-1] => {
+    "hostvars[inventory_hostname]": {
+        "ansible_check_mode": false,
+        "ansible_config_file": "/home/matt/Code/fabric/ansible/ansible.cfg",
+        "ansible_diff_mode": false,
+        "ansible_facts": {},
+        "ansible_forks": 5,
+        "ansible_host": "172.18.0.13",
+        "ansible_inventory_sources": [
+            "/home/matt/Code/fabric/ansible/netbox_inventory.yml"
+        ],
+        "ansible_playbook_python": "/home/matt/Code/fabric/venv/bin/python3",
+        "ansible_run_tags": [
+            "all"
+        ],
+        "ansible_skip_tags": [],
+        "ansible_verbosity": 0,
+        "ansible_version": {
+            "full": "2.18.5",
+            "major": 2,
+            "minor": 18,
+            "revision": 5,
+            "string": "2.18.5"
+        },
+        "custom_fields": {},
+        "device_roles": [
+            "leaf"
+        ],
+        "device_types": [
+            "switch"
+        ],
+        "group_names": [
+            "device_roles_leaf",
+            "sites_local"
+        ],
+        "groups": {
+            "all": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "device_roles_leaf": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3"
+            ],
+            "device_roles_spine": [
+                "spine-1",
+                "spine-2"
+            ],
+            "sites_gravelines": [],
+            "sites_local": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "ungrouped": []
+        },
+        "interfaces": [
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.291937Z",
+                "custom_fields": {},
+                "description": "To k8s-master-1",
+                "device": {
+                    "description": "",
+                    "display": "leaf-1",
+                    "id": 6,
+                    "name": "leaf-1",
+                    "url": "http://localhost:8000/api/dcim/devices/6/"
+                },
+                "display": "GigabitEthernet0/0",
+                "display_url": "http://localhost:8000/dcim/interfaces/28/",
+                "duplex": null,
+                "enabled": true,
+                "id": 28,
+                "ip_addresses": [
+                    {
+                        "address": "10.10.0.0/31",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:34.026068Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.10.0.0/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/26/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 26,
+                        "last_updated": "2025-05-06T11:24:34.026108Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/26/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.291979Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet0/0",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/28/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.430875Z",
+                "custom_fields": {},
+                "description": "To spine-1",
+                "device": {
+                    "description": "",
+                    "display": "leaf-1",
+                    "id": 6,
+                    "name": "leaf-1",
+                    "url": "http://localhost:8000/api/dcim/devices/6/"
+                },
+                "display": "GigabitEthernet3/1",
+                "display_url": "http://localhost:8000/dcim/interfaces/30/",
+                "duplex": null,
+                "enabled": true,
+                "id": 30,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.1.1/31",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:32.892763Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.1.1/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/16/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 16,
+                        "last_updated": "2025-05-06T11:24:32.892807Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/16/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.430908Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/1",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/30/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.483583Z",
+                "custom_fields": {},
+                "description": "To spine-2",
+                "device": {
+                    "description": "",
+                    "display": "leaf-1",
+                    "id": 6,
+                    "name": "leaf-1",
+                    "url": "http://localhost:8000/api/dcim/devices/6/"
+                },
+                "display": "GigabitEthernet3/2",
+                "display_url": "http://localhost:8000/dcim/interfaces/32/",
+                "duplex": null,
+                "enabled": true,
+                "id": 32,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.2.1/31",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:33.338194Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.2.1/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/20/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 20,
+                        "last_updated": "2025-05-06T11:24:33.338236Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/20/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.483657Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/2",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/32/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.252758Z",
+                "custom_fields": {},
+                "description": "MGMT",
+                "device": {
+                    "description": "",
+                    "display": "leaf-1",
+                    "id": 6,
+                    "name": "leaf-1",
+                    "url": "http://localhost:8000/api/dcim/devices/6/"
+                },
+                "display": "GigabitEthernet3/3",
+                "display_url": "http://localhost:8000/dcim/interfaces/26/",
+                "duplex": null,
+                "enabled": true,
+                "id": 26,
+                "ip_addresses": [
+                    {
+                        "address": "172.18.0.13/16",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:34.417345Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "172.18.0.13/16",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/29/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 29,
+                        "last_updated": "2025-05-06T11:24:34.417383Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/29/",
+                        "vrf": {
+                            "description": "VRF Management",
+                            "display": "MGMT (65000:100)",
+                            "id": 4,
+                            "name": "MGMT",
+                            "rd": "65000:100",
+                            "url": "http://localhost:8000/api/ipam/vrfs/4/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.252803Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": true,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/3",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/26/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.047784Z",
+                "custom_fields": {},
+                "description": "BGP router ID",
+                "device": {
+                    "description": "",
+                    "display": "leaf-1",
+                    "id": 6,
+                    "name": "leaf-1",
+                    "url": "http://localhost:8000/api/dcim/devices/6/"
+                },
+                "display": "Loopback0",
+                "display_url": "http://localhost:8000/dcim/interfaces/22/",
+                "duplex": null,
+                "enabled": true,
+                "id": 22,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.250.11/32",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:34.542856Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.250.11/32",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/30/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 30,
+                        "last_updated": "2025-05-06T11:24:34.542894Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/30/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.047825Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "Loopback0",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "Virtual",
+                    "value": "virtual"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/22/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            }
+        ],
+        "inventory_dir": "/home/matt/Code/fabric/ansible",
+        "inventory_file": "/home/matt/Code/fabric/ansible/netbox_inventory.yml",
+        "inventory_hostname": "leaf-1",
+        "inventory_hostname_short": "leaf-1",
+        "is_virtual": false,
+        "local_context_data": [
+            null
+        ],
+        "locations": [],
+        "manufacturers": [
+            "cisco"
+        ],
+        "omit": "__omit_place_holder__6210c679c548f0ea70cbdee4fa6696c769b6a8de",
+        "playbook_dir": "/home/matt/Code/fabric/ansible/playbooks",
+        "primary_ip4": "172.18.0.13",
+        "regions": [
+            "hauts-de-france"
+        ],
+        "serial": "",
+        "services": [],
+        "site_groups": [
+            "ovh"
+        ],
+        "sites": [
+            "local"
+        ],
+        "status": {
+            "label": "Active",
+            "value": "active"
+        },
+        "tags": [],
+        "tenants": [
+            "gns3"
+        ]
+    }
+}
+ok: [leaf-2] => {
+    "hostvars[inventory_hostname]": {
+        "ansible_check_mode": false,
+        "ansible_config_file": "/home/matt/Code/fabric/ansible/ansible.cfg",
+        "ansible_diff_mode": false,
+        "ansible_facts": {},
+        "ansible_forks": 5,
+        "ansible_host": "172.18.0.14",
+        "ansible_inventory_sources": [
+            "/home/matt/Code/fabric/ansible/netbox_inventory.yml"
+        ],
+        "ansible_playbook_python": "/home/matt/Code/fabric/venv/bin/python3",
+        "ansible_run_tags": [
+            "all"
+        ],
+        "ansible_skip_tags": [],
+        "ansible_verbosity": 0,
+        "ansible_version": {
+            "full": "2.18.5",
+            "major": 2,
+            "minor": 18,
+            "revision": 5,
+            "string": "2.18.5"
+        },
+        "custom_fields": {},
+        "device_roles": [
+            "leaf"
+        ],
+        "device_types": [
+            "switch"
+        ],
+        "group_names": [
+            "device_roles_leaf",
+            "sites_local"
+        ],
+        "groups": {
+            "all": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "device_roles_leaf": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3"
+            ],
+            "device_roles_spine": [
+                "spine-1",
+                "spine-2"
+            ],
+            "sites_gravelines": [],
+            "sites_local": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "ungrouped": []
+        },
+        "interfaces": [
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.605219Z",
+                "custom_fields": {},
+                "description": "To k8s-worker-1",
+                "device": {
+                    "description": "",
+                    "display": "leaf-2",
+                    "id": 4,
+                    "name": "leaf-2",
+                    "url": "http://localhost:8000/api/dcim/devices/4/"
+                },
+                "display": "GigabitEthernet0/1",
+                "display_url": "http://localhost:8000/dcim/interfaces/33/",
+                "duplex": null,
+                "enabled": true,
+                "id": 33,
+                "ip_addresses": [
+                    {
+                        "address": "10.12.0.2/31",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:33.612476Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.12.0.2/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/23/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 23,
+                        "last_updated": "2025-05-06T11:24:33.612504Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/23/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.605264Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet0/1",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/33/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.049223Z",
+                "custom_fields": {},
+                "description": "To spine-1",
+                "device": {
+                    "description": "",
+                    "display": "leaf-2",
+                    "id": 4,
+                    "name": "leaf-2",
+                    "url": "http://localhost:8000/api/dcim/devices/4/"
+                },
+                "display": "GigabitEthernet3/1",
+                "display_url": "http://localhost:8000/dcim/interfaces/24/",
+                "duplex": null,
+                "enabled": true,
+                "id": 24,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.1.3/31",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:33.099397Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.1.3/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/18/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 18,
+                        "last_updated": "2025-05-06T11:24:33.099423Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/18/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.049266Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/1",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/24/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.042247Z",
+                "custom_fields": {},
+                "description": "To spine-2",
+                "device": {
+                    "description": "",
+                    "display": "leaf-2",
+                    "id": 4,
+                    "name": "leaf-2",
+                    "url": "http://localhost:8000/api/dcim/devices/4/"
+                },
+                "display": "GigabitEthernet3/2",
+                "display_url": "http://localhost:8000/dcim/interfaces/21/",
+                "duplex": null,
+                "enabled": true,
+                "id": 21,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.2.3/31",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:34.149236Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.2.3/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/27/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 27,
+                        "last_updated": "2025-05-06T11:24:34.149275Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/27/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.042299Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/2",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/21/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.442236Z",
+                "custom_fields": {},
+                "description": "MGMT",
+                "device": {
+                    "description": "",
+                    "display": "leaf-2",
+                    "id": 4,
+                    "name": "leaf-2",
+                    "url": "http://localhost:8000/api/dcim/devices/4/"
+                },
+                "display": "GigabitEthernet3/3",
+                "display_url": "http://localhost:8000/dcim/interfaces/31/",
+                "duplex": null,
+                "enabled": true,
+                "id": 31,
+                "ip_addresses": [
+                    {
+                        "address": "172.18.0.14/16",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:33.012278Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "172.18.0.14/16",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/17/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 17,
+                        "last_updated": "2025-05-06T11:24:33.012307Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/17/",
+                        "vrf": {
+                            "description": "VRF Management",
+                            "display": "MGMT (65000:100)",
+                            "id": 4,
+                            "name": "MGMT",
+                            "rd": "65000:100",
+                            "url": "http://localhost:8000/api/ipam/vrfs/4/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.442278Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": true,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/3",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/31/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.426260Z",
+                "custom_fields": {},
+                "description": "BGP router ID",
+                "device": {
+                    "description": "",
+                    "display": "leaf-2",
+                    "id": 4,
+                    "name": "leaf-2",
+                    "url": "http://localhost:8000/api/dcim/devices/4/"
+                },
+                "display": "Loopback0",
+                "display_url": "http://localhost:8000/dcim/interfaces/29/",
+                "duplex": null,
+                "enabled": true,
+                "id": 29,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.250.12/32",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:34.277208Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.250.12/32",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/28/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 28,
+                        "last_updated": "2025-05-06T11:24:34.277238Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/28/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.426296Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "Loopback0",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "Virtual",
+                    "value": "virtual"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/29/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            }
+        ],
+        "inventory_dir": "/home/matt/Code/fabric/ansible",
+        "inventory_file": "/home/matt/Code/fabric/ansible/netbox_inventory.yml",
+        "inventory_hostname": "leaf-2",
+        "inventory_hostname_short": "leaf-2",
+        "is_virtual": false,
+        "local_context_data": [
+            null
+        ],
+        "locations": [],
+        "manufacturers": [
+            "cisco"
+        ],
+        "omit": "__omit_place_holder__6210c679c548f0ea70cbdee4fa6696c769b6a8de",
+        "playbook_dir": "/home/matt/Code/fabric/ansible/playbooks",
+        "primary_ip4": "172.18.0.14",
+        "regions": [
+            "hauts-de-france"
+        ],
+        "serial": "",
+        "services": [],
+        "site_groups": [
+            "ovh"
+        ],
+        "sites": [
+            "local"
+        ],
+        "status": {
+            "label": "Active",
+            "value": "active"
+        },
+        "tags": [],
+        "tenants": [
+            "gns3"
+        ]
+    }
+}
+ok: [leaf-3] => {
+    "hostvars[inventory_hostname]": {
+        "ansible_check_mode": false,
+        "ansible_config_file": "/home/matt/Code/fabric/ansible/ansible.cfg",
+        "ansible_diff_mode": false,
+        "ansible_facts": {},
+        "ansible_forks": 5,
+        "ansible_host": "172.18.0.15",
+        "ansible_inventory_sources": [
+            "/home/matt/Code/fabric/ansible/netbox_inventory.yml"
+        ],
+        "ansible_playbook_python": "/home/matt/Code/fabric/venv/bin/python3",
+        "ansible_run_tags": [
+            "all"
+        ],
+        "ansible_skip_tags": [],
+        "ansible_verbosity": 0,
+        "ansible_version": {
+            "full": "2.18.5",
+            "major": 2,
+            "minor": 18,
+            "revision": 5,
+            "string": "2.18.5"
+        },
+        "custom_fields": {},
+        "device_roles": [
+            "leaf"
+        ],
+        "device_types": [
+            "switch"
+        ],
+        "group_names": [
+            "device_roles_leaf",
+            "sites_local"
+        ],
+        "groups": {
+            "all": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "device_roles_leaf": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3"
+            ],
+            "device_roles_spine": [
+                "spine-1",
+                "spine-2"
+            ],
+            "sites_gravelines": [],
+            "sites_local": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "ungrouped": []
+        },
+        "interfaces": [
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.258076Z",
+                "custom_fields": {},
+                "description": "To k8s-worker-2",
+                "device": {
+                    "description": "",
+                    "display": "leaf-3",
+                    "id": 5,
+                    "name": "leaf-3",
+                    "url": "http://localhost:8000/api/dcim/devices/5/"
+                },
+                "display": "GigabitEthernet0/1",
+                "display_url": "http://localhost:8000/dcim/interfaces/27/",
+                "duplex": null,
+                "enabled": true,
+                "id": 27,
+                "ip_addresses": [
+                    {
+                        "address": "10.13.0.2/31",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:33.755495Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.13.0.2/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/24/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 24,
+                        "last_updated": "2025-05-06T11:24:33.755545Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/24/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.258123Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet0/1",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/27/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.624861Z",
+                "custom_fields": {},
+                "description": "To spine-1",
+                "device": {
+                    "description": "",
+                    "display": "leaf-3",
+                    "id": 5,
+                    "name": "leaf-3",
+                    "url": "http://localhost:8000/api/dcim/devices/5/"
+                },
+                "display": "GigabitEthernet3/1",
+                "display_url": "http://localhost:8000/dcim/interfaces/34/",
+                "duplex": null,
+                "enabled": true,
+                "id": 34,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.1.5/31",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:33.205943Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.1.5/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/19/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 19,
+                        "last_updated": "2025-05-06T11:24:33.205989Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/19/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.624895Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/1",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/34/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.247874Z",
+                "custom_fields": {},
+                "description": "To spine-2",
+                "device": {
+                    "description": "",
+                    "display": "leaf-3",
+                    "id": 5,
+                    "name": "leaf-3",
+                    "url": "http://localhost:8000/api/dcim/devices/5/"
+                },
+                "display": "GigabitEthernet3/2",
+                "display_url": "http://localhost:8000/dcim/interfaces/25/",
+                "duplex": null,
+                "enabled": true,
+                "id": 25,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.2.5/31",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:33.898879Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.2.5/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/25/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 25,
+                        "last_updated": "2025-05-06T11:24:33.898912Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/25/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.247920Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/2",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/25/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.639446Z",
+                "custom_fields": {},
+                "description": "MGMT",
+                "device": {
+                    "description": "",
+                    "display": "leaf-3",
+                    "id": 5,
+                    "name": "leaf-3",
+                    "url": "http://localhost:8000/api/dcim/devices/5/"
+                },
+                "display": "GigabitEthernet3/3",
+                "display_url": "http://localhost:8000/dcim/interfaces/35/",
+                "duplex": null,
+                "enabled": true,
+                "id": 35,
+                "ip_addresses": [
+                    {
+                        "address": "172.18.0.15/16",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:33.431458Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "172.18.0.15/16",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/21/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 21,
+                        "last_updated": "2025-05-06T11:24:33.431496Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/21/",
+                        "vrf": {
+                            "description": "VRF Management",
+                            "display": "MGMT (65000:100)",
+                            "id": 4,
+                            "name": "MGMT",
+                            "rd": "65000:100",
+                            "url": "http://localhost:8000/api/ipam/vrfs/4/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.639490Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": true,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/3",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/35/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T11:24:32.047722Z",
+                "custom_fields": {},
+                "description": "BGP router ID",
+                "device": {
+                    "description": "",
+                    "display": "leaf-3",
+                    "id": 5,
+                    "name": "leaf-3",
+                    "url": "http://localhost:8000/api/dcim/devices/5/"
+                },
+                "display": "Loopback0",
+                "display_url": "http://localhost:8000/dcim/interfaces/23/",
+                "duplex": null,
+                "enabled": true,
+                "id": 23,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.250.13/32",
+                        "comments": "",
+                        "created": "2025-05-06T11:24:33.521226Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.250.13/32",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/22/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 22,
+                        "last_updated": "2025-05-06T11:24:33.521260Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/22/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T11:24:32.047768Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "Loopback0",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "Virtual",
+                    "value": "virtual"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/23/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            }
+        ],
+        "inventory_dir": "/home/matt/Code/fabric/ansible",
+        "inventory_file": "/home/matt/Code/fabric/ansible/netbox_inventory.yml",
+        "inventory_hostname": "leaf-3",
+        "inventory_hostname_short": "leaf-3",
+        "is_virtual": false,
+        "local_context_data": [
+            null
+        ],
+        "locations": [],
+        "manufacturers": [
+            "cisco"
+        ],
+        "omit": "__omit_place_holder__6210c679c548f0ea70cbdee4fa6696c769b6a8de",
+        "playbook_dir": "/home/matt/Code/fabric/ansible/playbooks",
+        "primary_ip4": "172.18.0.15",
+        "regions": [
+            "hauts-de-france"
+        ],
+        "serial": "",
+        "services": [],
+        "site_groups": [
+            "ovh"
+        ],
+        "sites": [
+            "local"
+        ],
+        "status": {
+            "label": "Active",
+            "value": "active"
+        },
+        "tags": [],
+        "tenants": [
+            "gns3"
+        ]
+    }
+}
+ok: [spine-2] => {
+    "hostvars[inventory_hostname]": {
+        "ansible_check_mode": false,
+        "ansible_config_file": "/home/matt/Code/fabric/ansible/ansible.cfg",
+        "ansible_diff_mode": false,
+        "ansible_facts": {},
+        "ansible_forks": 5,
+        "ansible_host": "172.18.0.12",
+        "ansible_inventory_sources": [
+            "/home/matt/Code/fabric/ansible/netbox_inventory.yml"
+        ],
+        "ansible_playbook_python": "/home/matt/Code/fabric/venv/bin/python3",
+        "ansible_run_tags": [
+            "all"
+        ],
+        "ansible_skip_tags": [],
+        "ansible_verbosity": 0,
+        "ansible_version": {
+            "full": "2.18.5",
+            "major": 2,
+            "minor": 18,
+            "revision": 5,
+            "string": "2.18.5"
+        },
+        "custom_fields": {},
+        "device_roles": [
+            "spine"
+        ],
+        "device_types": [
+            "switch"
+        ],
+        "group_names": [
+            "device_roles_spine",
+            "sites_local"
+        ],
+        "groups": {
+            "all": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "device_roles_leaf": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3"
+            ],
+            "device_roles_spine": [
+                "spine-1",
+                "spine-2"
+            ],
+            "sites_gravelines": [],
+            "sites_local": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "ungrouped": []
+        },
+        "interfaces": [
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T10:02:54.549691Z",
+                "custom_fields": {},
+                "description": "To Leaf-1",
+                "device": {
+                    "description": "",
+                    "display": "spine-2",
+                    "id": 3,
+                    "name": "spine-2",
+                    "url": "http://localhost:8000/api/dcim/devices/3/"
+                },
+                "display": "GigabitEthernet0/1",
+                "display_url": "http://localhost:8000/dcim/interfaces/18/",
+                "duplex": null,
+                "enabled": true,
+                "id": 18,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.2.0/31",
+                        "comments": "",
+                        "created": "2025-05-06T10:02:55.079826Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.2.0/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/12/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 12,
+                        "last_updated": "2025-05-06T10:02:55.079852Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/12/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T10:02:54.549735Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet0/1",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/18/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T10:02:54.507289Z",
+                "custom_fields": {},
+                "description": "To Leaf-2",
+                "device": {
+                    "description": "",
+                    "display": "spine-2",
+                    "id": 3,
+                    "name": "spine-2",
+                    "url": "http://localhost:8000/api/dcim/devices/3/"
+                },
+                "display": "GigabitEthernet0/2",
+                "display_url": "http://localhost:8000/dcim/interfaces/17/",
+                "duplex": null,
+                "enabled": true,
+                "id": 17,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.2.2/31",
+                        "comments": "",
+                        "created": "2025-05-06T10:02:55.304202Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.2.2/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/14/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 14,
+                        "last_updated": "2025-05-06T10:02:55.304241Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/14/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T10:02:54.507351Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet0/2",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/17/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T10:02:54.506004Z",
+                "custom_fields": {},
+                "description": "To Leaf-3",
+                "device": {
+                    "description": "",
+                    "display": "spine-2",
+                    "id": 3,
+                    "name": "spine-2",
+                    "url": "http://localhost:8000/api/dcim/devices/3/"
+                },
+                "display": "GigabitEthernet0/3",
+                "display_url": "http://localhost:8000/dcim/interfaces/16/",
+                "duplex": null,
+                "enabled": true,
+                "id": 16,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.2.4/31",
+                        "comments": "",
+                        "created": "2025-05-06T10:02:54.956931Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.2.4/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/11/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 11,
+                        "last_updated": "2025-05-06T10:02:54.956972Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/11/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T10:02:54.506047Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet0/3",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/16/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T10:02:54.727198Z",
+                "custom_fields": {},
+                "description": "MGMT",
+                "device": {
+                    "description": "",
+                    "display": "spine-2",
+                    "id": 3,
+                    "name": "spine-2",
+                    "url": "http://localhost:8000/api/dcim/devices/3/"
+                },
+                "display": "GigabitEthernet3/3",
+                "display_url": "http://localhost:8000/dcim/interfaces/20/",
+                "duplex": null,
+                "enabled": true,
+                "id": 20,
+                "ip_addresses": [
+                    {
+                        "address": "172.18.0.12/16",
+                        "comments": "",
+                        "created": "2025-05-06T10:02:55.446900Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "172.18.0.12/16",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/15/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 15,
+                        "last_updated": "2025-05-06T10:02:55.446936Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/15/",
+                        "vrf": {
+                            "description": "VRF Management",
+                            "display": "MGMT (65000:100)",
+                            "id": 4,
+                            "name": "MGMT",
+                            "rd": "65000:100",
+                            "url": "http://localhost:8000/api/ipam/vrfs/4/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T10:02:54.727239Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": true,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/3",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/20/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-06T10:02:54.696258Z",
+                "custom_fields": {},
+                "description": "BGP router ID",
+                "device": {
+                    "description": "",
+                    "display": "spine-2",
+                    "id": 3,
+                    "name": "spine-2",
+                    "url": "http://localhost:8000/api/dcim/devices/3/"
+                },
+                "display": "Loopback0",
+                "display_url": "http://localhost:8000/dcim/interfaces/19/",
+                "duplex": null,
+                "enabled": true,
+                "id": 19,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.250.2/32",
+                        "comments": "",
+                        "created": "2025-05-06T10:02:55.162465Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.250.2/32",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/13/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 13,
+                        "last_updated": "2025-05-06T10:02:55.162500Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/13/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-06T10:02:54.696302Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "Loopback0",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "Virtual",
+                    "value": "virtual"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/19/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            }
+        ],
+        "inventory_dir": "/home/matt/Code/fabric/ansible",
+        "inventory_file": "/home/matt/Code/fabric/ansible/netbox_inventory.yml",
+        "inventory_hostname": "spine-2",
+        "inventory_hostname_short": "spine-2",
+        "is_virtual": false,
+        "local_context_data": [
+            null
+        ],
+        "locations": [],
+        "manufacturers": [
+            "cisco"
+        ],
+        "omit": "__omit_place_holder__6210c679c548f0ea70cbdee4fa6696c769b6a8de",
+        "playbook_dir": "/home/matt/Code/fabric/ansible/playbooks",
+        "primary_ip4": "172.18.0.12",
+        "regions": [
+            "hauts-de-france"
+        ],
+        "serial": "",
+        "services": [],
+        "site_groups": [
+            "ovh"
+        ],
+        "sites": [
+            "local"
+        ],
+        "status": {
+            "label": "Active",
+            "value": "active"
+        },
+        "tags": [],
+        "tenants": [
+            "gns3"
+        ]
+    }
+}
+ok: [spine-1] => {
+    "hostvars[inventory_hostname]": {
+        "ansible_check_mode": false,
+        "ansible_config_file": "/home/matt/Code/fabric/ansible/ansible.cfg",
+        "ansible_diff_mode": false,
+        "ansible_facts": {},
+        "ansible_forks": 5,
+        "ansible_host": "172.18.0.11",
+        "ansible_inventory_sources": [
+            "/home/matt/Code/fabric/ansible/netbox_inventory.yml"
+        ],
+        "ansible_playbook_python": "/home/matt/Code/fabric/venv/bin/python3",
+        "ansible_run_tags": [
+            "all"
+        ],
+        "ansible_skip_tags": [],
+        "ansible_verbosity": 0,
+        "ansible_version": {
+            "full": "2.18.5",
+            "major": 2,
+            "minor": 18,
+            "revision": 5,
+            "string": "2.18.5"
+        },
+        "custom_fields": {},
+        "device_roles": [
+            "spine"
+        ],
+        "device_types": [
+            "switch"
+        ],
+        "group_names": [
+            "device_roles_spine",
+            "sites_local"
+        ],
+        "groups": {
+            "all": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "device_roles_leaf": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3"
+            ],
+            "device_roles_spine": [
+                "spine-1",
+                "spine-2"
+            ],
+            "sites_gravelines": [],
+            "sites_local": [
+                "leaf-1",
+                "leaf-2",
+                "leaf-3",
+                "spine-1",
+                "spine-2"
+            ],
+            "ungrouped": []
+        },
+        "interfaces": [
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-05T21:25:37.938926Z",
+                "custom_fields": {},
+                "description": "To Leaf-1",
+                "device": {
+                    "description": "",
+                    "display": "spine-1",
+                    "id": 2,
+                    "name": "spine-1",
+                    "url": "http://localhost:8000/api/dcim/devices/2/"
+                },
+                "display": "GigabitEthernet0/1",
+                "display_url": "http://localhost:8000/dcim/interfaces/11/",
+                "duplex": null,
+                "enabled": true,
+                "id": 11,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.1.0/31",
+                        "comments": "",
+                        "created": "2025-05-05T21:25:38.491140Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.1.0/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/9/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 9,
+                        "last_updated": "2025-05-05T21:25:38.491160Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/9/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-05T21:25:37.938960Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet0/1",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/11/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-05T21:25:37.939072Z",
+                "custom_fields": {},
+                "description": "To Leaf-2",
+                "device": {
+                    "description": "",
+                    "display": "spine-1",
+                    "id": 2,
+                    "name": "spine-1",
+                    "url": "http://localhost:8000/api/dcim/devices/2/"
+                },
+                "display": "GigabitEthernet0/2",
+                "display_url": "http://localhost:8000/dcim/interfaces/12/",
+                "duplex": null,
+                "enabled": true,
+                "id": 12,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.1.2/31",
+                        "comments": "",
+                        "created": "2025-05-05T21:25:38.366738Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.1.2/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/7/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 7,
+                        "last_updated": "2025-05-05T21:25:38.366757Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/7/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-05T21:25:37.939095Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet0/2",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/12/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-05T21:25:38.065607Z",
+                "custom_fields": {},
+                "description": "To Leaf-3",
+                "device": {
+                    "description": "",
+                    "display": "spine-1",
+                    "id": 2,
+                    "name": "spine-1",
+                    "url": "http://localhost:8000/api/dcim/devices/2/"
+                },
+                "display": "GigabitEthernet0/3",
+                "display_url": "http://localhost:8000/dcim/interfaces/14/",
+                "duplex": null,
+                "enabled": true,
+                "id": 14,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.1.4/31",
+                        "comments": "",
+                        "created": "2025-05-05T21:25:38.288367Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.1.4/31",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/6/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 6,
+                        "last_updated": "2025-05-05T21:25:38.288389Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/6/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-05T21:25:38.065630Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet0/3",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/14/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-05T21:25:38.158767Z",
+                "custom_fields": {},
+                "description": "MGMT",
+                "device": {
+                    "description": "",
+                    "display": "spine-1",
+                    "id": 2,
+                    "name": "spine-1",
+                    "url": "http://localhost:8000/api/dcim/devices/2/"
+                },
+                "display": "GigabitEthernet3/3",
+                "display_url": "http://localhost:8000/dcim/interfaces/15/",
+                "duplex": null,
+                "enabled": true,
+                "id": 15,
+                "ip_addresses": [
+                    {
+                        "address": "172.18.0.11/16",
+                        "comments": "",
+                        "created": "2025-05-05T21:25:38.546775Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "172.18.0.11/16",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/10/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 10,
+                        "last_updated": "2025-05-05T21:25:38.546786Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/10/",
+                        "vrf": {
+                            "description": "VRF Management",
+                            "display": "MGMT (65000:100)",
+                            "id": 4,
+                            "name": "MGMT",
+                            "rd": "65000:100",
+                            "url": "http://localhost:8000/api/ipam/vrfs/4/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-05T21:25:38.158785Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": true,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "GigabitEthernet3/3",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "1000BASE-T (1GE)",
+                    "value": "1000base-t"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/15/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            },
+            {
+                "_occupied": false,
+                "bridge": null,
+                "cable": null,
+                "cable_end": null,
+                "connected_endpoints": null,
+                "connected_endpoints_reachable": null,
+                "connected_endpoints_type": null,
+                "count_fhrp_groups": 0,
+                "count_ipaddresses": 1,
+                "created": "2025-05-05T21:25:38.055670Z",
+                "custom_fields": {},
+                "description": "BGP router ID",
+                "device": {
+                    "description": "",
+                    "display": "spine-1",
+                    "id": 2,
+                    "name": "spine-1",
+                    "url": "http://localhost:8000/api/dcim/devices/2/"
+                },
+                "display": "Loopback0",
+                "display_url": "http://localhost:8000/dcim/interfaces/13/",
+                "duplex": null,
+                "enabled": true,
+                "id": 13,
+                "ip_addresses": [
+                    {
+                        "address": "10.100.250.1/32",
+                        "comments": "",
+                        "created": "2025-05-05T21:25:38.429571Z",
+                        "custom_fields": {},
+                        "description": "",
+                        "display": "10.100.250.1/32",
+                        "display_url": "http://localhost:8000/ipam/ip-addresses/8/",
+                        "dns_name": "",
+                        "family": {
+                            "label": "IPv4",
+                            "value": 4
+                        },
+                        "id": 8,
+                        "last_updated": "2025-05-05T21:25:38.429590Z",
+                        "nat_inside": null,
+                        "nat_outside": [],
+                        "role": null,
+                        "status": {
+                            "label": "Active",
+                            "value": "active"
+                        },
+                        "tags": [],
+                        "tenant": null,
+                        "url": "http://localhost:8000/api/ipam/ip-addresses/8/",
+                        "vrf": {
+                            "description": "VRF Fabric",
+                            "display": "FABRIC (65000:200)",
+                            "id": 3,
+                            "name": "FABRIC",
+                            "rd": "65000:200",
+                            "url": "http://localhost:8000/api/ipam/vrfs/3/"
+                        }
+                    }
+                ],
+                "l2vpn_termination": null,
+                "label": "",
+                "lag": null,
+                "last_updated": "2025-05-05T21:25:38.055694Z",
+                "link_peers": [],
+                "link_peers_type": null,
+                "mac_address": null,
+                "mac_addresses": [],
+                "mark_connected": false,
+                "mgmt_only": false,
+                "mode": null,
+                "module": null,
+                "mtu": 1500,
+                "name": "Loopback0",
+                "parent": null,
+                "poe_mode": null,
+                "poe_type": null,
+                "primary_mac_address": null,
+                "qinq_svlan": null,
+                "rf_channel": null,
+                "rf_channel_frequency": null,
+                "rf_channel_width": null,
+                "rf_role": null,
+                "speed": null,
+                "tagged_vlans": [],
+                "tags": [],
+                "tx_power": null,
+                "type": {
+                    "label": "Virtual",
+                    "value": "virtual"
+                },
+                "untagged_vlan": null,
+                "url": "http://localhost:8000/api/dcim/interfaces/13/",
+                "vdcs": [],
+                "vlan_translation_policy": null,
+                "vrf": null,
+                "wireless_lans": [],
+                "wireless_link": null,
+                "wwn": null
+            }
+        ],
+        "inventory_dir": "/home/matt/Code/fabric/ansible",
+        "inventory_file": "/home/matt/Code/fabric/ansible/netbox_inventory.yml",
+        "inventory_hostname": "spine-1",
+        "inventory_hostname_short": "spine-1",
+        "is_virtual": false,
+        "local_context_data": [
+            null
+        ],
+        "locations": [],
+        "manufacturers": [
+            "cisco"
+        ],
+        "omit": "__omit_place_holder__6210c679c548f0ea70cbdee4fa6696c769b6a8de",
+        "playbook_dir": "/home/matt/Code/fabric/ansible/playbooks",
+        "primary_ip4": "172.18.0.11",
+        "regions": [
+            "hauts-de-france"
+        ],
+        "serial": "",
+        "services": [],
+        "site_groups": [
+            "ovh"
+        ],
+        "sites": [
+            "local"
+        ],
+        "status": {
+            "label": "Active",
+            "value": "active"
+        },
+        "tags": [],
+        "tenants": [
+            "gns3"
+        ]
+    }
+}
+
+PLAY RECAP *********************************************************************
+leaf-1                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+leaf-2                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+leaf-3                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+spine-1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+spine-2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

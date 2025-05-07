@@ -1,0 +1,14 @@
+---
+plugin: netbox.netbox.nb_inventory
+api_endpoint: "http://localhost:8000"
+token: "45c940230bd185be36a6012fcaa04491f8c54d63"
+validate_certs: false
+interfaces: yes
+group_by:
+  - device_roles
+  - sites
+device_query_filters:
+  - has_primary_ip: "true"
+query:
+  ip_addresses: true
+

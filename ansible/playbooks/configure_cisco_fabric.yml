@@ -1,10 +1,10 @@
 ---
 - name: "Configure Cisco fabric"
-  hosts: switches
+  hosts: all
   gather_facts: no
   become: yes
   
   tasks:
-    - name: Get facts
+    - name: Configure Cisco devices
       include_role:
         name: roles/cisco
