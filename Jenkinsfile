@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    // environment {
-    //     // Set any environment variables here
-    //     // For example: NODE_ENV = 'development'
-    // }
-
     stages {
         stage('Clone Repository') {
             steps {
@@ -14,6 +9,11 @@ pipeline {
         }
 
         stage('Terraform Plan') {
+            agent {
+                docker {
+                    image 'hashicorp/terraform:light'
+                }
+            }
             steps {
                 dir('terraform-netbox') {
                     sh 'terraform init'
