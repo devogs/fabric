@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-    environment {
-        // Set any environment variables here
-        // For example: NODE_ENV = 'development'
-    }
+    // environment {
+    //     // Set any environment variables here
+    //     // For example: NODE_ENV = 'development'
+    // }
 
     stages {
         stage('Clone Repository') {
