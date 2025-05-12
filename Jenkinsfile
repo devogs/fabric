@@ -13,24 +13,13 @@ pipeline {
             }
         }
 
-        stage('Run test echo1') {
+        stage('Terraform Plan') {
             steps {
-                sh 'echo "This is the first test"'
-                // Replace with actual command, e.g.:
-                // sh 'npm install'
-                // sh 'pip install -r requirements.txt'
+                dir('terraform-netbox') {
+                    sh 'terraform plan'
+                }
             }
         }
-
-        stage('Run test echo2') {
-            steps {
-                sh 'echo "This is the second test"'
-                // Replace with actual test command, e.g.:
-                // sh 'npm test'
-                // sh 'pytest'
-            }
-        }
-    }
 
     post {
         success {
