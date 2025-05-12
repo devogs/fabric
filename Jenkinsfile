@@ -13,18 +13,18 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Run test echo1') {
             steps {
-                sh 'echo "Installing dependencies..."'
+                sh 'echo "This is the first test"'
                 // Replace with actual command, e.g.:
                 // sh 'npm install'
                 // sh 'pip install -r requirements.txt'
             }
         }
 
-        stage('Run Tests') {
+        stage('Run test echo2') {
             steps {
-                sh 'echo "Running tests..."'
+                sh 'echo "This is the second test"'
                 // Replace with actual test command, e.g.:
                 // sh 'npm test'
                 // sh 'pytest'
