@@ -16,6 +16,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 dir('terraform-netbox') {
+                    sh 'terraform init'
                     sh 'terraform plan'
                 }
             }
