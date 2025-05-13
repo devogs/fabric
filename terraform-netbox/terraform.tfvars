@@ -1,4 +1,4 @@
-netbox_server_url = "http://localhost:8000"
+netbox_server_url = "http://172.20.0.1:8000"
 netbox_api_token  = "45c940230bd185be36a6012fcaa04491f8c54d63"
 
 manufacturers = [
