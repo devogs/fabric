@@ -9,11 +9,6 @@ pipeline {
         }
 
         stage('Terraform Plan') {
-            agent {
-                docker {
-                    image 'hashicorp/terraform:light'
-                }
-            }
             steps {
                 dir('terraform-netbox') {
                     sh 'terraform init'
