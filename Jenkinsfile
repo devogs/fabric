@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    // environment {
-    //     // Set any environment variables here
-    //     // For example: NODE_ENV = 'development'
-    // }
-
     stages {
         stage('Clone Repository') {
             steps {
@@ -13,21 +8,12 @@ pipeline {
             }
         }
 
-        stage('Run test echo1') {
+        stage('Terraform Plan') {
             steps {
-                sh 'echo "This is the first test"'
-                // Replace with actual command, e.g.:
-                // sh 'npm install'
-                // sh 'pip install -r requirements.txt'
-            }
-        }
-
-        stage('Run test echo2') {
-            steps {
-                sh 'echo "This is the second test"'
-                // Replace with actual test command, e.g.:
-                // sh 'npm test'
-                // sh 'pytest'
+                dir('terraform-netbox') {
+                    sh 'terraform init'
+                    sh 'terraform plan'
+                }
             }
         }
     }
