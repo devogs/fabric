@@ -1,7 +1,3 @@
-Certainly! Here's a comprehensive `README.md` file tailored for your GitHub repository [devogs/fabric](https://github.com/devogs/fabric.git), which automates the deployment of a Cisco MP-BGP fabric using Terraform, NetBox, Ansible, and Jenkins.
-
----
-
 # fabric
 
 An automated solution to deploy a Cisco MP-BGP fabric integrated with a Kubernetes cluster. This project leverages Terraform for infrastructure provisioning, NetBox as the source of truth, Ansible for configuration management, and Jenkins for continuous integration and deployment.
